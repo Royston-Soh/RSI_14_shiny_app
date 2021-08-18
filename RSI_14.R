@@ -28,10 +28,10 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  data_collected=reactive(get_data(input$Index))
+  Index=reactive(get_data(input$Index))
   
   output$plot=renderPlot(
-    chartSeries(data_collected(),
+    chartSeries(Index(),
                 theme=chartTheme('white'),
                 TA=c(addRSI(n=14)))
   )
